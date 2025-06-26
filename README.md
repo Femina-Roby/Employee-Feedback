@@ -45,14 +45,14 @@ Add these after deploying to Vercel/Render:
 git clone https://github.com/Femina-Roby/Employee-Feedback.git
 cd Employee-Feedback
 
-Backend Setup
-With Docker:
+#Backend Setup
+#With Docker:
 
 cd backend
 docker build -t feedback-api .
 docker run -p 8000:8000 feedback-api
 
-Or manually:
+#Or manually:
 
 cd backend
 python -m venv venv
@@ -60,18 +60,17 @@ source venv/bin/activate  # or .\venv\Scripts\activate on Windows
 pip install -r requirements.txt
 uvicorn main:app --reload
 
-Optional .env:
+#Optional .env:
 
 DATABASE_URL=sqlite:///./feedback.db
 
-Frontend Setup
+#Frontend Setup
 
 cd frontend
 npm install
 npm start
 
-Dockerfile (Backend)
-
+#Dockerfile (Backend)
 FROM python:3.10-slim
 WORKDIR /app
 COPY requirements.txt .
@@ -79,7 +78,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
-Place this in your backend directory.
+#Place this in your backend directory.
 
 
 
